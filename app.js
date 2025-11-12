@@ -1,32 +1,39 @@
-import express from "express";
- 
-// Create an Express app
+/*import express from "express";
+import 'dotenv/config.js';
+import bookRoutes from "./routers/BookRoutes.js";
+//create express app
 const app = express();
-
-
-// Middleware
+//middleware
 app.use(express.json());
 
+const port = 2004;
 
-const port = 3000;
-
-
-
-app.get("/PatPat", async(request, response) => {
-    response.status(200).json({ Message: "Hello Im Baby Joy!" });
-//200 is okay, 404 is galing sa status
-
-});
-
-
-
-// Routes
-try {
-    app.listen(port, () => {
-        console.log('listening on port 3000...');
-    });
-}catch (e) {
+try{
+    app.listen(process.env.PORT || 3000 , ()=>{
+        console.log(`Listening to port ${process.env.PORT || 3000}...`)
+})
+}catch(e){
     console.log(e);
 }
 
+app.use('/book',bookRoutes);*/
 
+import express from "express";
+import 'dotenv/config.js';
+import studentRoutes from "./routers/StudentRoutes.js";
+//create express app
+const app = express();
+//middleware
+app.use(express.json());
+
+const port = 2004;
+
+try{
+    app.listen(process.env.PORT || 3000 , ()=>{
+        console.log(`Listening to port ${process.env.PORT || 3000}...`)
+})
+}catch(e){
+    console.log(e);
+}
+
+app.use('/student',studentRoutes);
