@@ -25,13 +25,13 @@ import studentRoutes from "./routers/StudentRoutes.js";
 import cors from "cors";
 
 
-//create express app
+
 const app = express();
 
 let corsOptions = {
     origin: process.env.ORIGIN
 }
-//middleware
+
 app.use(express.json());
 app.use(cors(corsOptions));
 
