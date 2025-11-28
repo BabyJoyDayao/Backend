@@ -75,6 +75,6 @@ export const getUser = async (id) =>{
         throw new Error('Invalid id');
     }
 
-    const [user] = await pool.query('SELECT * FROM user WHERE id = ?', [id]);
+    const [user] = await pool.query('SELECT * FROM tbluser WHERE id = ?', [id]);
     return user;
 }

@@ -3,13 +3,14 @@ import express from "express";
 import authHandler from "../middleware/authHandler.js";
 
 
-const BookRoutes = express.Router();
+const bookRoutes = express.Router();
 
-bookRouter.use(authHandler);
 
-BookRoutes.get('/all',BookController.fetchBooks);
-BookRoutes.post('/new',BookController.createBook);
-BookRoutes.put('/edit/:bookId',BookController.editBook);
-BookRoutes.delete('/delete/:bookId',BookController.deleteBook);
+bookRoutes.get('/all',authHandler,BookController.fetchBooks);
+bookRoutes.post('/new',authHandler, BookController.createBook);
+bookRoutes.put('/edit/:bookId',authHandler, BookController.editBook);
+bookRoutes.delete('/delete/:bookId',authHandler, BookController.deleteBook);
 
-export default BookRoutes;
+export default bookRoutes;
+
+
